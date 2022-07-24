@@ -27,3 +27,13 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Homepage Endpoint Hit")
 	fmt.Println("Endpoint Hit: Homepage Endpoint")
 }
+
+func handleRequests() {
+	http.HandleFunc("/", homePage)
+	http.HandleFunc("/articles", allArticles)
+	log.Fatal(http.ListenAndServe(":8080", nil))
+}
+
+func main() {
+	handleRequests()
+}
