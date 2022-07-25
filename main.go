@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
 	"github.com/gorilla/mux"
 )
 
@@ -25,6 +26,10 @@ func allArticles(w http.ResponseWriter, r *http.Request) {
 }
 
 func createArticle(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Endpoint Hit: update Article")
+}
+
+func updateArticle(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Endpoint Hit: Create Article")
 }
 
@@ -38,6 +43,7 @@ func handleRequests() {
 	myRouter.HandleFunc("/", homePage)
 	myRouter.HandleFunc("/articles", allArticles).Methods("GET")
 	myRouter.HandleFunc("/createArticle", createArticle).Methods("POST")
+	myRouter.HandleFunc("/updateArticle", updateArticle).Methods("PUT")
 	log.Fatal(http.ListenAndServe(":8080", myRouter))
 }
 
