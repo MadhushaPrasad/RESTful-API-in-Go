@@ -53,7 +53,7 @@ func handleRequests() {
 	myRouter.HandleFunc("/createArticle", createArticle).Methods("POST")
 	myRouter.HandleFunc("/updateArticle", updateArticle).Methods("PUT")
 	myRouter.HandleFunc("/deleteArticle", deleteArticle).Methods("DELETE")
-	myRouter.HandleFunc("/searchArticle", deleteArticle).Methods("GET")
+	myRouter.HandleFunc("/searchArticle", searchArticle).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8080", myRouter))
 }
 
